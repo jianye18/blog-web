@@ -7,7 +7,12 @@ module.exports = {
       errors: true
     }
   },
+  chainWebpack: config => {
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+  },
   configureWebpack: () => {
+
     if (process.env.NODE_ENV === 'production') {
       return {
         plugins: [
